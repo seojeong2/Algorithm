@@ -1,46 +1,44 @@
 from collections import deque
-import sys
-input = sys.stdin.readline
 
-#
+k = int(input())
 
-K = int(input())
-for i in range(K):
+def bfs(v):
+    visited[v] = 1
+    q = deque()
+    q.append(v)
 
-    V,E = map(int,input().split())
-    graph = [[] for _ in range(V + 1)]
-    color = [0] * (V + 1)
+    while q:
+        a = q.popleft()
+        for i in graph[a]:
+            if visited[i] == 0:
+                visited[i] = -visited[a]
+                q.append(i)
+            else:
+                if visited[a] == visited[i]:
+                    return False
+    return True
 
-    for i in range(E):
-        u,v = map(int,input().split())
-        graph[u].append(v)
-        graph[v].append(u)
+for i in range(k):
+    v,e = map(int,input().split())
+    graph = [[] for i in range(v+1)]
+    visited = [0] * (v+1)
 
-    # 인접리스트는 정렬해줘야함
-    for i in range(1,V+1):
-        graph[i].sort()
+    flg = 1
 
-    def bfs(v):
-        color[v] = 1
-        q = deque([v])
-        while q:
-            now = q.popleft()
-            for next in graph[now]:
-                if color[next] == 0:
-                    color[next] = -color[now]
-                    q.append(next)
-                else:
-                    if color[next] == color[now]:
-                        return False
-        return True
+    for j in range(e):
+        a,b = map(int,input().split())
+        graph[a].append(b)
+        graph[b].append(a)
 
-    isTrue = True
-    for i in range(1,V+1):
-        if color[i] == 0:
-            if not bfs(i):
-                isTrue = False
+    print('그래프 형태',graph)
+    for k in range(1,v+1):
+        if visited[k] == 0:
+            if not bfs(k):
+                flg = -1
                 break
-    print('YES' if isTrue else 'NO')
+    print('YES' if flg == 1 else 'NO')
+
+
 
 
 
