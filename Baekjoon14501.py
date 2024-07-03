@@ -10,3 +10,4 @@ for i in range(n):
             dp[j] = dp[i] +schedule[i][1]
 
 print(dp[n])
+
