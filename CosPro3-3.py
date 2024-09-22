@@ -11,7 +11,7 @@ def solution(bishops):
 		arr[x][y] = 1
 		
 		for dx,dy in dxdy:
-			nx,ny = x,y
+			nx,ny = x,y # 변하기전 값 기억해둬야함
 			while True:
 				nx += dx
 				ny += dy

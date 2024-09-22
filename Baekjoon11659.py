@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 n,m = map(int,input().split())
 data = list(map(int,input().split()))
 dp = [0] * (n+1)

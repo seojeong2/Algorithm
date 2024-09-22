@@ -10,6 +10,6 @@ for i in range(m,n+1):
     for j in range(2,math.sqrt(i,2)+1):
         if i % j == 0:
             break
-    else:
+    else: # for 문이 잘실행되엇다면 
         print(i)
 
