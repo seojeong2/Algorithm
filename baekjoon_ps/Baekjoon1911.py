@@ -1,7 +1,4 @@
-n,l = map(int,input().split())
-puddles = [tuple(map(int,input().split())) for _ in range(n)]
-
-puddles.sort()
+ㅊ
 
 covered = 0
 plank_cnt = 0 # 널판지 개수
