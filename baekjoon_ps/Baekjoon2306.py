@@ -11,7 +11,7 @@ for _ in range(n):
         one_cnt += 1
     elif num < 0:
         minus.append(num)
-    elif num > 0:
+    elif num > 1:
         plus.append(num)
     else:
         zero_cnt += 1
